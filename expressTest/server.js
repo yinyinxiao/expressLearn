@@ -8,7 +8,10 @@ var fs=require('fs');
 //Multer 不会处理任何非 multipart/form-data 类型的表单数据。
 var multer  = require('multer')
 var upload = multer({ dest: 'uploads/' })//文件上传后指定放在的目录，这里即根目录下的unloads目录下
-
+//------------文件的上传------multer-------
+app.post('/upload',upload.single('picture'),function(req,res){//upload.single('表单中input的name值');
+    res.end("上传ok");
+})
 
 var app=express();//express() 是一个由 express 模块导出的入口（top-level）函数。
 
@@ -74,10 +77,6 @@ app.get('/',function(req,res){
     //express提供的方法 res.sendFile(__dirname+'/index.html')
 })
 
-//------------文件的上传------multer-------
-app.post('/upload',upload.single('picture'),function(req,res){//upload.single('表单中input的name值');
-    res.end("上传ok");
-})
 
 
 
