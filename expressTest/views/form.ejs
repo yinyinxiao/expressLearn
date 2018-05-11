@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <%-include('partial.ejs')-%>
+    <h1>
+        <%=person.age%>
+        <%=person.job%>
+        <p>hobby</p>
+    </h1>
+        <ul>
+            <% person.hobby.forEach(function(item){%>
+                <li><%=item%></li>
+            <%})%>
+
+        </ul>
+   
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+    <input type="file" name="picture">
+    <input type="submit">
+    </form>
+</body>
+</html>
